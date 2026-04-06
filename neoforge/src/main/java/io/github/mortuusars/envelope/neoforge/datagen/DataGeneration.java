@@ -29,6 +29,7 @@ public class DataGeneration {
         BlockTagsDatagen blockTags = new BlockTagsDatagen(output, registries, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTags);
         generator.addProvider(event.includeServer(), new ItemTagsDatagen(output, registries, blockTags.contentsGetter(), existingFileHelper));
+        generator.addProvider(event.includeServer(), new EntityTagsDatagen(output, registries, existingFileHelper));
         generator.addProvider(event.includeServer(), LootTablesDatagen.create(output, registries));
 
         DatapackBuiltinEntriesProvider datapackRegistries = new BuiltInDatapackEntries(output, registries);
